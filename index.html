@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="description" content="Skyline live weather dashboard" />
+  <title>Skyline — Live Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sky-band" id="skyBand"></div>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Skyline home"><span class="brand-mark">✳</span><span>skyline<span class="brand-dot">.</span></span></a>
+      <div class="top-meta"><span class="live-dot"></span><span>LIVE WEATHER</span><span class="meta-divider">/</span><span id="updatedAt">AWAITING LOCATION</span></div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">◐</button>
+    </header>
+
+    <section class="search-row" aria-label="Weather search">
+      <form id="searchForm" class="search-box">
+        <span class="search-icon">⌕</span>
+        <input id="cityInput" type="search" placeholder="Search a city…" autocomplete="off" aria-label="Search a city" />
+        <button type="submit" class="go-button">Go <span>↗</span></button>
+      </form>
+      <button id="locationButton" class="location-button"><span>⌖</span> Use my location</button>
+    </section>
+
+    <div class="notice" id="notice" role="status">Add your OpenWeatherMap API key in <code>script.js</code> to load live weather.</div>
+
+    <section class="hero-grid">
+      <article class="hero-card panel">
+        <div class="hero-top"><div><p class="eyebrow">CURRENT CONDITIONS <span class="live-pill"><i></i> LIVE</span></p><h1 id="placeName">—</h1><p class="date-line" id="dateLine">Your local forecast, at a glance</p></div><div class="weather-art" id="weatherArt">☀</div></div>
+        <div class="temperature-row"><div class="temperature" id="temperature">--<span>°</span></div><div class="condition-block"><div id="condition" class="condition">Waiting for weather</div><div id="highLow" class="high-low">H: --° <span>·</span> L: --°</div></div></div>
+        <div class="hero-bottom"><div><span class="mini-label">FEELS LIKE</span><strong id="feelsLike">—°</strong></div><div class="sun-path"><span class="mini-label">SUN PATH</span><div class="sun-track"><span class="sun-arc"></span><span class="sun-ball" id="sunBall"></span></div><div class="sun-times"><span>↑ <b id="sunrise">--:--</b></span><span>↓ <b id="sunset">--:--</b></span></div></div></div>
+      </article>
+      <article class="side-card panel"><div class="side-heading"><span class="eyebrow">ATMOSPHERE</span><span class="side-symbol">⌁</span></div><div class="metric-grid">
+        <div class="metric"><span class="metric-icon">◌</span><span class="metric-name">Humidity</span><strong id="humidity">--<small>%</small></strong><span class="metric-foot">Relative humidity</span></div>
+        <div class="metric"><span class="metric-icon">≋</span><span class="metric-name">Wind</span><strong id="wind">--<small> km/h</small></strong><span class="metric-foot" id="windDirection">Wind speed</span></div>
+        <div class="metric"><span class="metric-icon">◉</span><span class="metric-name">Pressure</span><strong id="pressure">--<small> hPa</small></strong><span class="metric-foot">Atmospheric pressure</span></div>
+        <div class="metric"><span class="metric-icon">◍</span><span class="metric-name">Visibility</span><strong id="visibility">--<small> km</small></strong><span class="metric-foot">Horizontal range</span></div>
+        <div class="metric"><span class="metric-icon">☼</span><span class="metric-name">UV index</span><strong id="uv">--</strong><span class="metric-foot" id="uvLabel">Solar intensity</span></div>
+        <div class="metric"><span class="metric-icon">☁</span><span class="metric-name">Cloud cover</span><strong id="clouds">--<small>%</small></strong><span class="metric-foot">Sky coverage</span></div>
+      </div></article>
+    </section>
+
+    <section class="forecast-section panel"><div class="section-heading"><div><p class="eyebrow">THE NEXT 24 HOURS</p><h2>Next hours</h2></div><span class="section-note">3-HOURLY FORECAST</span></div><div class="hourly-list" id="hourlyList"><div class="empty-state">Hourly forecast will appear here.</div></div></section>
+    <section class="forecast-section panel"><div class="section-heading"><div><p class="eyebrow">PLAN AHEAD</p><h2>5-day outlook</h2></div><span class="section-note">UPCOMING DAYS</span></div><div class="daily-list" id="dailyList"><div class="empty-state">Your 5-day outlook will appear here.</div></div></section>
+    <footer><span class="footer-brand">✳ SKYLINE</span><span>Built with Skyline <b>·</b> Data via OpenWeatherMap</span><span class="footer-right">LOOK UP. STEP OUT.</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
